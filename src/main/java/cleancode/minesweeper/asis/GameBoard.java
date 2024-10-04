@@ -1,5 +1,7 @@
 package cleancode.minesweeper.asis;
 
+import cleancode.minesweeper.asis.gamelevel.GameLevel;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -8,9 +10,14 @@ public class GameBoard {
     public static final int LAND_MINE_COUNT = 10;
 
     private final Cell[][] board;
+    private final int landMineCount;
 
-    public GameBoard(int rowSize, int colSize) {
+    public GameBoard(GameLevel gameLevel) {
+        int rowSize = gameLevel.getRowSize();
+        int colSize = gameLevel.getColSize();
         board = new Cell[rowSize][colSize];
+
+        landMineCount = gameLevel.getLandMineCount();
     }
 
     public void initializeGame() {
@@ -127,7 +134,7 @@ public class GameBoard {
         if (row - 1 >= 0 && isLandMineCell(row - 1, col)) {
             count++;
         }
-        if (row - 1 >= 0 && col + 1 < 10 && isLandMineCell(row - 1, col + 1)) {
+        if (row - 1 >= 0 && col + 1 < colSize && isLandMineCell(row - 1, col + 1)) {
             count++;
         }
         if (col - 1 >= 0 && isLandMineCell(row, col - 1)) {

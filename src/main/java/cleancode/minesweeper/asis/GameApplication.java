@@ -1,9 +1,13 @@
 package cleancode.minesweeper.asis;
 
+import cleancode.minesweeper.asis.gamelevel.GameLevel;
+import cleancode.minesweeper.asis.gamelevel.VeryBeginner;
+
 public class GameApplication {
 
     public static void main(String[] args) {
-        Minesweeper minesweeper = new Minesweeper();
+        GameLevel gameLevel = new VeryBeginner();
+        Minesweeper minesweeper = new Minesweeper(gameLevel);
         minesweeper.run();
     }
 }
