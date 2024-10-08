@@ -1,9 +1,7 @@
 package cleancode.studycafe.bymyself;
 
 import cleancode.studycafe.bymyself.exception.AppException;
-import cleancode.studycafe.bymyself.io.InputHandler;
-import cleancode.studycafe.bymyself.io.OutputHandler;
-import cleancode.studycafe.bymyself.io.StudyCafeFileHandler;
+import cleancode.studycafe.bymyself.io.*;
 import cleancode.studycafe.bymyself.machine.Machine;
 import cleancode.studycafe.bymyself.model.StudyCafeLockerPass;
 import cleancode.studycafe.bymyself.model.StudyCafePass;
@@ -13,8 +11,8 @@ import java.util.List;
 
 public class StudyCafePassMachineRunnable implements Machine {
 
-    private final InputHandler inputHandler = new InputHandler();
-    private final OutputHandler outputHandler = new OutputHandler();
+    private final InputHandler inputHandler = new ConsoleInputHandler();
+    private final OutputHandler outputHandler = new ConsoleOutputHandler();
 
     @Override
     public void run() {
