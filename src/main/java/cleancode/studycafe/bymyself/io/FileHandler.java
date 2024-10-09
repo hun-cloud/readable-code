@@ -1,12 +1,10 @@
 package cleancode.studycafe.bymyself.io;
 
-import cleancode.studycafe.bymyself.model.StudyCafeLockerPass;
-import cleancode.studycafe.bymyself.model.StudyCafePass;
-
-import java.util.List;
+import cleancode.studycafe.bymyself.model.StudyCafeLockerPasses;
+import cleancode.studycafe.bymyself.model.StudyCafePasses;
 
 public interface FileHandler {
-    List<StudyCafePass> readStudyCafePasses();
+    StudyCafePasses readStudyCafePasses();
 
-    List<StudyCafeLockerPass> readLockerPasses();
+    StudyCafeLockerPasses readLockerPasses();
 }

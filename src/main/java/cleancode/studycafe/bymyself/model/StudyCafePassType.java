@@ -26,4 +26,8 @@ public enum StudyCafePassType {
     public boolean isHOURLY() {
         return this == StudyCafePassType.HOURLY;
     }
+
+    public boolean isFixed() {
+        return this == StudyCafePassType.FIXED;
+    }
 }
