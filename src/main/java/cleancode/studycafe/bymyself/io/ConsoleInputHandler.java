@@ -3,6 +3,7 @@ package cleancode.studycafe.bymyself.io;
 import cleancode.studycafe.bymyself.exception.AppException;
 import cleancode.studycafe.bymyself.model.StudyCafePass;
 import cleancode.studycafe.bymyself.model.StudyCafePassType;
+import cleancode.studycafe.bymyself.util.Validator;
 
 import java.util.List;
 import java.util.Scanner;
@@ -15,16 +16,10 @@ public class ConsoleInputHandler implements InputHandler{
     public StudyCafePassType getPassTypeSelectingUserAction() {
         String userInput = SCANNER.nextLine();
 
-        if ("1".equals(userInput)) {
-            return StudyCafePassType.HOURLY;
-        }
-        if ("2".equals(userInput)) {
-            return StudyCafePassType.WEEKLY;
-        }
-        if ("3".equals(userInput)) {
-            return StudyCafePassType.FIXED;
-        }
-        throw new AppException("잘못된 입력입니다.");
+        Validator.checkInteger(userInput);
+
+        return StudyCafePassType.getStudyCafePassTypeByValue(userInput)
+                .orElseThrow(() -> new IllegalArgumentException("잘못된 입력입니다."));
     }
 
     @Override
