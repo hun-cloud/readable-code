@@ -13,9 +13,23 @@ public class StudyCafePasses {
         return new StudyCafePasses(studyCafePasses);
     }
 
-    public List<StudyCafePass> getCafePassesByCafePassType(StudyCafePassType studyCafePassType) {
-        return studyCafePasses.stream()
+    public StudyCafePasses getCafePassesByCafePassType(StudyCafePassType studyCafePassType) {
+        List<StudyCafePass> passes = studyCafePasses.stream()
                 .filter(studyCafePass -> studyCafePass.getPassType() == studyCafePassType)
                 .toList();
+
+        return StudyCafePasses.of(passes);
+    }
+
+    public List<StudyCafePass> getStudyCafePasses() {
+        return studyCafePasses;
+    }
+
+    public int getSize() {
+        return studyCafePasses.size();
+    }
+
+    public StudyCafePass get(int index) {
+        return studyCafePasses.get(index);
     }
 }

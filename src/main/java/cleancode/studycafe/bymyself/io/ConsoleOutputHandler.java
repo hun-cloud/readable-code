@@ -2,10 +2,12 @@ package cleancode.studycafe.bymyself.io;
 
 import cleancode.studycafe.bymyself.model.StudyCafeLockerPass;
 import cleancode.studycafe.bymyself.model.StudyCafePass;
+import cleancode.studycafe.bymyself.model.StudyCafePasses;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
-public class ConsoleOutputHandler implements OutputHandler{
+public class ConsoleOutputHandler implements OutputHandler {
 
     @Override
     public void showWelcomeMessage() {
@@ -26,21 +28,23 @@ public class ConsoleOutputHandler implements OutputHandler{
     }
 
     @Override
-    public void showPassListForSelection(List<StudyCafePass> passes) {
+    public void showPassListForSelection(StudyCafePasses passes) {
         System.out.println();
         System.out.println("이용권 목록");
-        for (int index = 0; index < passes.size(); index++) {
-            StudyCafePass pass = passes.get(index);
-            System.out.println(String.format("%s. ", index + 1) + pass.display());
-        }
+        IntStream.range(0, passes.getSize())
+                .forEach(index -> {
+                    StudyCafePass pass = passes.get(index);
+                    System.out.println(String.format("%s. ", index + 1) + pass.display());
+                        }
+                );
     }
 
     @Override
     public void askLockerPass(StudyCafeLockerPass lockerPass) {
         System.out.println();
         String askMessage = String.format(
-            "사물함을 이용하시겠습니까? (%s)",
-            lockerPass.display()
+                "사물함을 이용하시겠습니까? (%s)",
+                lockerPass.display()
         );
 
         System.out.println(askMessage);
