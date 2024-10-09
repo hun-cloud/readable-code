@@ -2,8 +2,7 @@ package cleancode.studycafe.bymyself.io;
 
 import cleancode.studycafe.bymyself.model.StudyCafeLockerPass;
 import cleancode.studycafe.bymyself.model.StudyCafePass;
-
-import java.util.List;
+import cleancode.studycafe.bymyself.model.StudyCafePasses;
 
 public interface OutputHandler {
     void showWelcomeMessage();
@@ -12,7 +11,7 @@ public interface OutputHandler {
 
     void askPassTypeSelection();
 
-    void showPassListForSelection(List<StudyCafePass> passes);
+    void showPassListForSelection(StudyCafePasses passes);
 
     void askLockerPass(StudyCafeLockerPass lockerPass);
 

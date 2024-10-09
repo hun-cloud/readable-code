@@ -31,7 +31,7 @@ public class StudyCafePassMachine implements Machine {
                 StudyCafePassType studyCafePassType = inputHandler.getPassTypeSelectingUserAction();
                 StudyCafePasses studyCafePasses = fileHandler.readStudyCafePasses();
 
-                List<StudyCafePass> passes = studyCafePasses.getCafePassesByCafePassType(studyCafePassType);
+                StudyCafePasses passes = studyCafePasses.getCafePassesByCafePassType(studyCafePassType);
                 outputHandler.showPassListForSelection(passes);
                 StudyCafePass selectedPass = inputHandler.getSelectPass(passes);
 
@@ -49,6 +49,7 @@ public class StudyCafePassMachine implements Machine {
                             outputHandler.showPassOrderSummary(selectedPass, lockerPass);
                         }
                     });
+                    continue;
                 }
 
                 outputHandler.showPassOrderSummary(selectedPass, null);
