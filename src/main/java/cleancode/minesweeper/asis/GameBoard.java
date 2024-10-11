@@ -3,12 +3,11 @@ package cleancode.minesweeper.asis;
 import cleancode.minesweeper.asis.cell.*;
 import cleancode.minesweeper.asis.gamelevel.GameLevel;
 import cleancode.minesweeper.asis.position.CellPosition;
+import cleancode.minesweeper.asis.position.CellPositions;
 import cleancode.minesweeper.asis.position.RelativePosition;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Stream;
 
 public class GameBoard {
 
@@ -26,6 +25,7 @@ public class GameBoard {
     }
 
     public void initializeGame() {
+        CellPositions cellPositions = CellPositions.from(board);
         int rowSize = getRowSize();
         int colSize = getColSize();
 
@@ -117,9 +117,8 @@ public class GameBoard {
     }
 
     public boolean isAllCellChecked() {
-        return Arrays.stream(board)
-                .flatMap(Arrays::stream)
-                .allMatch(Cell::isChecked);
+        Cells cells = Cells.from(board);
+        return cells.isAllChecked();
     }
 
     public boolean isInvalidCellPosition(CellPosition cellPosition) {
