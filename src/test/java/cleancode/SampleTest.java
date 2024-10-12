@@ -2,7 +2,10 @@ package cleancode;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -29,4 +32,28 @@ class SampleTest {
 
     }
 
+
+    class LottoTicket {
+        final List<String> tickets;
+
+        public LottoTicket(List<String> tickets) {
+            this.tickets = tickets;
+        }
+    }
+
+    @Test
+    void suppleTest() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+
+        System.out.println(list);
+
+        Collections.shuffle(list);
+        System.out.println(list);
+
+
+    }
 }
