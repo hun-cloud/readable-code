@@ -5,6 +5,7 @@ import cleancode.studycafe.bymyself.io.*;
 import cleancode.studycafe.bymyself.machine.Machine;
 import cleancode.studycafe.bymyself.model.*;
 
+
 import java.util.Optional;
 
 public class StudyCafePassMachine implements Machine {
