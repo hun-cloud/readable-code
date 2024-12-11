@@ -1,4 +1,11 @@
 package cleancode.minesweeper.asis.io.sign;
 
-public class CellSignProvidable {
+import cleancode.minesweeper.asis.cell.CellSnapshot;
+
+public interface CellSignProvidable {
+
+    boolean supports(CellSnapshot cellSnapshot);
+
+    String provide(CellSnapshot cellSnapshot);
+
 }
