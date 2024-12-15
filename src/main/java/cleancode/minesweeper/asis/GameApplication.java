@@ -1,12 +1,10 @@
 package cleancode.minesweeper.asis;
 
-import cleancode.minesweeper.asis.config.GameConfig;
-import cleancode.minesweeper.asis.gamelevel.GameLevel;
-import cleancode.minesweeper.asis.gamelevel.VeryBeginner;
-import cleancode.minesweeper.asis.io.ConsoleInputHandler;
-import cleancode.minesweeper.asis.io.ConsoleOutputHandler;
-import cleancode.minesweeper.asis.io.InputHandler;
-import cleancode.minesweeper.asis.io.OutputHandler;
+import cleancode.minesweeper.asis.minesweeper.Minesweeper;
+import cleancode.minesweeper.asis.minesweeper.config.GameConfig;
+import cleancode.minesweeper.asis.minesweeper.gamelevel.VeryBeginner;
+import cleancode.minesweeper.asis.minesweeper.io.ConsoleInputHandler;
+import cleancode.minesweeper.asis.minesweeper.io.ConsoleOutputHandler;
 
 public class GameApplication {
 
